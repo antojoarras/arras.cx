@@ -4990,21 +4990,3 @@ let websockets = (() => {
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
-
-function spawnPortal(interval) {
-  setInterval(() => {
-    let o = new Entity(room.randomType("norm"))
-    o.define(Class.portal), (o.team = -101)
-    o.SIZE = 20
-    o.skill.score = 26302
-    o.color = 17
-    setTimeout(
-      () => {
-        o.kill()
-        o.removeFromGrid()
-      },
-      1000 * interval - 3000 + Math.random() * 8000
-    )
-  }, 1000 * interval)
-}
-spawnPortal(20)
